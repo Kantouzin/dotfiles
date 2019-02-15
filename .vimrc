@@ -1,174 +1,69 @@
+scriptencoding utf-8
+
+" encoding
+
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,cp932
+set termencoding=utf-8
+
 " reset augroup---------------------------
 
 augroup MyAutoCmd
   autocmd!
 augroup END
 
+let s:is_windows = has("win32") || has("win64")
+
+if s:is_windows
+  set shellslash
+endif
+
 " dein scripts-----------------------------
 
-" pluginをinstallするdirectory
-let s:dein_dir = expand('~\.vim\dein')
+" directory installed plugins
+let s:dein_dir = expand('~/.vim/dein')
 
-" dein.vim本体
-let s:dein_repo_dir = s:dein_dir . '\repos\github.com\Shougo\dein.vim'
+" dein.vim
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-" dein.vim本体が未installの場合はinstallする
+" if dein.vim isn't installed, install dein.vim
 if !isdirectory(s:dein_repo_dir)
   execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
 
-" dein.vim本体をruntimepathに追加
-if &runtimepath !~# '\dein.vim'
+" add dein.vim to runtimepath
+if &runtimepath !~# '/dein.vim'
   execute 'set runtimepath^=' . s:dein_repo_dir
 endif
 
-" 設定開始
+" start settings
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
-  let g:rc_dir    = expand('~\.vim\rc')
-  let s:toml      = g:rc_dir . '\dein.toml'
-  let s:lazy_toml = g:rc_dir . '\dein_lazy.toml'
+  let g:rc_dir    = expand('~/.vim/rc')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
-  " TOMLを読み込み, cacheする
+  " load colorscheme
+  call dein#add("tomasr/molokai")
+
+  " load TOML
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-  " 設定終了
+  " end
   call dein#end()
   call dein#save_state()
 endif
 
-" 未installのものをinstallする
+" install plugins
 if dein#check_install()
   call dein#install()
 endif
 
 " end dein scripts-------------------------
 
-scriptencoding utf-8
-" vim:set ts=8 sts=2 sw=2 tw=0: (この行に関しては:help modelineを参照)
-"
-" An example for a Japanese version vimrc file.
-" 日本語版のデフォルト設定ファイル(vimrc) - Vim 7.4
-"
-" Last Change: 02-Jan-2018.
-" Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
-"
-" 解説:
-" このファイルにはVimの起動時に必ず設定される、編集時の挙動に関する設定が書
-" かれています。GUIに関する設定はgvimrcに書かかれています。
-"
-" 個人用設定は_vimrcというファイルを作成しそこで行ないます。_vimrcはこのファ
-" イルの後に読込まれるため、ここに書かれた内容を上書きして設定することが出来
-" ます。_vimrcは$HOMEまたは$VIMに置いておく必要があります。$HOMEは$VIMよりも
-" 優先され、$HOMEでみつかった場合$VIMは読込まれません。
-"
-" 管理者向けに本設定ファイルを直接書き換えずに済ませることを目的として、サイ
-" トローカルな設定を別ファイルで行なえるように配慮してあります。Vim起動時に
-" サイトローカルな設定ファイル($VIM/vimrc_local.vim)が存在するならば、本設定
-" ファイルの主要部分が読み込まれる前に自動的に読み込みます。
-"
-" 読み込み後、変数g:vimrc_local_finishが非0の値に設定されていた場合には本設
-" 定ファイルに書かれた内容は一切実行されません。デフォルト動作を全て差し替え
-" たい場合に利用して下さい。
-"
-" 参考:
-"   :help vimrc
-"   :echo $HOME
-"   :echo $VIM
-"   :version
-
-"---------------------------------------------------------------------------
-" サイトローカルな設定($VIM/vimrc_local.vim)があれば読み込む。読み込んだ後に
-" 変数g:vimrc_local_finishに非0な値が設定されていた場合には、それ以上の設定
-" ファイルの読込を中止する。
-if 1 && filereadable($VIM . '/vimrc_local.vim')
-  unlet! g:vimrc_local_finish
-  source $VIM/vimrc_local.vim
-  if exists('g:vimrc_local_finish') && g:vimrc_local_finish != 0
-    finish
-  endif
-endif
-
-"---------------------------------------------------------------------------
-" ユーザ優先設定($HOME/.vimrc_first.vim)があれば読み込む。読み込んだ後に変数
-" g:vimrc_first_finishに非0な値が設定されていた場合には、それ以上の設定ファ
-" イルの読込を中止する。
-if 1 && exists('$HOME') && filereadable($HOME . '/.vimrc_first.vim')
-  unlet! g:vimrc_first_finish
-  source $HOME/.vimrc_first.vim
-  if exists('g:vimrc_first_finish') && g:vimrc_first_finish != 0
-    finish
-  endif
-endif
-
-" plugins下のディレクトリをruntimepathへ追加する。
-for s:path in split(glob($VIM.'/plugins/*'), '\n')
-  if s:path !~# '\~$' && isdirectory(s:path)
-    let &runtimepath = &runtimepath.','.s:path
-  end
-endfor
-unlet s:path
-
-"---------------------------------------------------------------------------
-" 日本語対応のための設定:
-"
-" ファイルを読込む時にトライする文字エンコードの順序を確定する。漢字コード自
-" 動判別機能を利用する場合には別途iconv.dllが必要。iconv.dllについては
-" README_w32j.txtを参照。ユーティリティスクリプトを読み込むことで設定される。
-source $VIM/plugins/kaoriya/encode_japan.vim
-" メッセージを日本語にする (Windowsでは自動的に判断・設定されている)
-if !(has('win32') || has('mac')) && has('multi_lang')
-  if !exists('$LANG') || $LANG.'X' ==# 'X'
-    if !exists('$LC_CTYPE') || $LC_CTYPE.'X' ==# 'X'
-      language ctype ja_JP.eucJP
-    endif
-    if !exists('$LC_MESSAGES') || $LC_MESSAGES.'X' ==# 'X'
-      language messages ja_JP.eucJP
-    endif
-  endif
-endif
-" MacOS Xメニューの日本語化 (メニュー表示前に行なう必要がある)
-if has('mac')
-  set langmenu=japanese
-endif
-" 日本語入力用のkeymapの設定例 (コメントアウト)
-if has('keymap')
-  " ローマ字仮名のkeymap
-  "silent! set keymap=japanese
-  "set iminsert=0 imsearch=0
-endif
-" 非GUI日本語コンソールを使っている場合の設定
-if !has('gui_running') && &encoding != 'cp932' && &term == 'win32'
-  set termencoding=cp932
-endif
-
-"---------------------------------------------------------------------------
-" メニューファイルが存在しない場合は予め'guioptions'を調整しておく
-if 1 && !filereadable($VIMRUNTIME . '/menu.vim') && has('gui_running')
-  set guioptions+=M
-endif
-
-"---------------------------------------------------------------------------
-" Bram氏の提供する設定例をインクルード (別ファイル:vimrc_example.vim)。これ
-" 以前にg:no_vimrc_exampleに非0な値を設定しておけばインクルードはしない。
-if 1 && (!exists('g:no_vimrc_example') || g:no_vimrc_example == 0)
-  if &guioptions !~# "M"
-    " vimrc_example.vimを読み込む時はguioptionsにMフラグをつけて、syntax on
-    " やfiletype plugin onが引き起こすmenu.vimの読み込みを避ける。こうしない
-    " とencに対応するメニューファイルが読み込まれてしまい、これの後で読み込
-    " まれる.vimrcでencが設定された場合にその設定が反映されずメニューが文字
-    " 化けてしまう。
-    set guioptions+=M
-    source $VIMRUNTIME/vimrc_example.vim
-    set guioptions-=M
-  else
-    source $VIMRUNTIME/vimrc_example.vim
-  endif
-endif
-
-"---------------------------------------------------------------------------
 " 検索の挙動に関する設定:
 "
 " 検索時に大文字小文字を無視 (noignorecase:無視しない)
@@ -225,105 +120,24 @@ set cmdheight=2
 set showcmd
 " タイトルを表示
 set title
-" 画面を黒地に白にする (次行の先頭の " を削除すれば有効になる)
-"colorscheme evening " (Windows用gvim使用時はgvimrcを編集すること)
 
 "---------------------------------------------------------------------------
-" ファイル操作に関する設定:
-"
-" バックアップファイルを作成しない
-set nobackup
+" file automatically created
 
-" undoファイルを作成しない
+" *~
+set nobackup
+" *.un~
 set noundofile
 
 "---------------------------------------------------------------------------
-" ファイル名に大文字小文字の区別がないシステム用の設定:
-"   (例: DOS/Windows/MacOS)
-"
-if filereadable($VIM . '/vimrc') && filereadable($VIM . '/ViMrC')
-  " tagsファイルの重複防止
-  set tags=./tags,tags
-endif
+" colorscheme
 
-"---------------------------------------------------------------------------
-" コンソールでのカラー表示のための設定(暫定的にUNIX専用)
-if has('unix') && !has('gui_running')
-  let s:uname = system('uname')
-  if s:uname =~? "linux"
-    set term=builtin_linux
-  elseif s:uname =~? "freebsd"
-    set term=builtin_cons25
-  elseif s:uname =~? "Darwin"
-    set term=beos-ansi
-  else
-    set term=builtin_xterm
-  endif
-  unlet s:uname
-endif
-
-"---------------------------------------------------------------------------
-" コンソール版で環境変数$DISPLAYが設定されていると起動が遅くなる件へ対応
-if !has('gui_running') && has('xterm_clipboard')
-  set clipboard=exclude:cons\\\|linux\\\|cygwin\\\|rxvt\\\|screen
-endif
-
-"---------------------------------------------------------------------------
-" プラットホーム依存の特別な設定
-
-" WinではPATHに$VIMが含まれていないときにexeを見つけ出せないので修正
-if has('win32') && $PATH !~? '\(^\|;\)' . escape($VIM, '\\') . '\(;\|$\)'
-  let $PATH = $VIM . ';' . $PATH
-endif
-
-if has('mac')
-  " Macではデフォルトの'iskeyword'がcp932に対応しきれていないので修正
-  set iskeyword=@,48-57,_,128-167,224-235
-endif
-
-"---------------------------------------------------------------------------
-" KaoriYaでバンドルしているプラグインのための設定
-
-" autofmt: 日本語文章のフォーマット(折り返し)プラグイン.
-set formatexpr=autofmt#japanese#formatexpr()
-
-" vimdoc-ja: 日本語ヘルプを無効化する.
-if kaoriya#switch#enabled('disable-vimdoc-ja')
-  let &rtp = join(filter(split(&rtp, ','), 'v:val !~ "[/\\\\]plugins[/\\\\]vimdoc-ja"'), ',')
-endif
-
-" vimproc: 同梱のvimprocを無効化する
-if kaoriya#switch#enabled('disable-vimproc')
-  let &rtp = join(filter(split(&rtp, ','), 'v:val !~ "[/\\\\]plugins[/\\\\]vimproc$"'), ',')
-endif
-
-" go-extra: 同梱の vim-go-extra を無効化する
-if kaoriya#switch#enabled('disable-go-extra')
-  let &rtp = join(filter(split(&rtp, ','), 'v:val !~ "[/\\\\]plugins[/\\\\]golang$"'), ',')
-endif
-
-" Copyright (C) 2009-2016 KaoriYa/MURAOKA Taro
+syntax enable
+set termguicolors
+colorscheme molokai
 
 "---------------------------------------------------------------------------
 
-" 構文ハイライトを有効
-syntax on
-
-"---------------------------------------------------------------------------
-
-" encodingを設定
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8,cp932
-
-"---------------------------------------------------------------------------
-
-" yankしたとき, clipboardにcopyする
+" copy to clipboard when yanking
 set clipboard=unnamed,autoselect
-
-" toolbarを非表示にする
-set guioptions-=T
-
-" 左右のscrollbarを非表示にする
-set guioptions-=r
 

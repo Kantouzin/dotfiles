@@ -3,30 +3,21 @@ repo = "Shougo/dein.vim"
 
 [[plugins]]
 repo = "Shougo/vimproc.vim"
-hook_post_update = """
-  if dein#util#_is_windows()
-    let cmd = 'tools\\update-dll-mingw'
-  elseif dein#util#_is_cygwin()
-    let cmd = 'make -f make_cygwin.mak'
-  elseif executable('gmake')
-    let cmd = 'gmake'
-  else
-    let cmd = 'make'
-  endif
-  let g:dein#plugin.build = cmd
-"""
+build = "make"
 
 [[plugins]]
-repo = "tomasr/molokai"
+repo = "nathanaelkane/vim-indent-guides"
 hook_add = """
-  set background=dark
-  autocmd MyAutoCmd VimEnter * colorscheme molokai
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_guide_size = 1
 """
 
 [[plugins]]
-repo = "Yggdroot/indentLine"
-hook_source = "let g:indentLine_char = '┆'"
+repo = "scrooloose/nerdtree"
 
 [[plugins]]
-repo = "Shougo/neosnippet-snippets"
+repo = "tomtom/tcomment_vim"
+
+[[plugins]]
+repo = "tpope/vim-surround"
 

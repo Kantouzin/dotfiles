@@ -122,6 +122,9 @@ hook_source = """
 """
 
 [[plugins]]
+repo = "Shougo/neosnippet-snippets"
+
+[[plugins]]
 repo = "eagletmt/ghcmod-vim"
 on_ft = ["haskell"]
 hook_source = """
@@ -137,7 +140,7 @@ repo = 'eagletmt/neco-ghc'
 on_ft = ["haskell"]
 
 [[plugins]]
-repo = "dag/vim2hs"
+repo = "itchyny/vim-haskell-indent"
 on_ft = ["haskell"]
 
 [[plugins]]
