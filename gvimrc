@@ -169,4 +169,3 @@ if has('printer')
 endif
 
 " Copyright (C) 2009-2016 KaoriYa/MURAOKA Taro
-

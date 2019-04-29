@@ -143,4 +143,3 @@ colorscheme molokai
 
 " copy to clipboard when yanking
 set clipboard=unnamed,autoselect
-
