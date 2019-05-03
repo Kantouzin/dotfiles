@@ -5,6 +5,7 @@ set -x LC_CTYPE ja_JP.UTF-8
 # alias
 alias vi="/usr/bin/vim"
 alias ls="ls --all --color --classify"
+alias glgg="git log --oneline --graph --decorate"
 if test /usr/bin/trash-put
     alias rm="trash-put"
 end

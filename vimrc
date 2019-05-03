@@ -143,3 +143,5 @@ colorscheme molokai
 
 " copy to clipboard when yanking
 set clipboard=unnamed,autoselect
+
+set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
