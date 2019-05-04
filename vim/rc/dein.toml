@@ -24,3 +24,12 @@ repo = "tomtom/tcomment_vim"
 
 [[plugins]]
 repo = "tpope/vim-surround"
+
+[[plugins]]
+repo = "alvan/vim-closetag"
+
+[[plugins]]
+repo = "jiangmiao/auto-pairs"
+
+[[plugins]]
+repo = "thinca/vim-quickrun"
