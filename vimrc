@@ -133,7 +133,7 @@ set noundofile
 "---------------------------------------------------------------------------
 " colorscheme
 
-syntax enable
+syntax on
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -143,5 +143,7 @@ colorscheme molokai
 
 " copy to clipboard when yanking
 set clipboard=unnamed,autoselect
+
+filetype indent on
 
 set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
