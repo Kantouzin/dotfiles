@@ -54,3 +54,9 @@ hook_add = """
   let g:ale_sign_column_always = 1
   let g:ale_lint_on_enter = 1
 """
+
+[[plugins]]
+repo = "itchyny/calendar.vim"
+
+[[plugins]]
+repo = "Kantouzin/vim-today"
