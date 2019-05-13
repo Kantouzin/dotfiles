@@ -30,12 +30,12 @@ hook_source = """
   endif
 """
 on_i = 1
-on_ft = ["snippet"]
+on_ft = "snippet"
 depends = ["neosnippet-snippets"]
 
 [[plugins]]
 repo = "eagletmt/ghcmod-vim"
-on_ft = ["haskell"]
+on_ft = "haskell"
 hook_source = """
   :command Gt GhcModType
 
@@ -46,19 +46,19 @@ hook_source = """
 
 [[plugins]]
 repo = 'eagletmt/neco-ghc'
-on_ft = ["haskell"]
+on_ft = "haskell"
 
 [[plugins]]
 repo = "itchyny/vim-haskell-indent"
-on_ft = ["haskell"]
+on_ft = "haskell"
 
 [[plugins]]
 repo = "cespare/vim-toml"
-on_ft = ["toml"]
+on_ft = "toml"
 
 [[plugins]]
 repo = "Vimjas/vim-python-pep8-indent"
-on_ft = ["python"]
+on_ft = "python"
 
 [[plugins]]
 repo = "alunny/pegjs-vim"
