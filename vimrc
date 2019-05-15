@@ -147,3 +147,11 @@ set clipboard=unnamed,autoselect
 filetype indent on
 
 set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
+
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.md setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.pegjs setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END

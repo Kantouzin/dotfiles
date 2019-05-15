@@ -13,13 +13,6 @@ hook_add = """
 on_i = 1
 
 [[plugins]]
-repo = "deoplete-plugins/deoplete-jedi"
-hook_add = """
-  let g:deoplete#sources#jedi#python_path = "/usr/bin/python3.6"
-"""
-on_ft = "python"
-
-[[plugins]]
 repo = "Shougo/neosnippet"
 hook_source = """
   imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -32,21 +25,6 @@ hook_source = """
 on_i = 1
 on_ft = "snippet"
 depends = ["neosnippet-snippets"]
-
-[[plugins]]
-repo = "eagletmt/ghcmod-vim"
-on_ft = "haskell"
-hook_source = """
-  :command Gt GhcModType
-
-  augroup ghcmodcheck
-    autocmd! BufWritePost <buffer> GhcModCheckAsync
-  augroup END
-"""
-
-[[plugins]]
-repo = 'eagletmt/neco-ghc'
-on_ft = "haskell"
 
 [[plugins]]
 repo = "itchyny/vim-haskell-indent"

@@ -6,14 +6,30 @@ repo = "Shougo/vimproc.vim"
 build = "make"
 
 [[plugins]]
-repo = "Shougo/neosnippet-snippets"
+repo = "autozimu/LanguageClient-neovim"
+rev = "next"
+build = "./install.sh"
+hook_add = '''
+  set hidden
+  let g:LanguageClient_serverCommands = {
+    \ "python": ["pyls"]
+    \ }
+  let g:LanguageClient_autoStart = 1
+'''
 
 [[plugins]]
-repo = "nathanaelkane/vim-indent-guides"
-hook_add = """
-  let g:indent_guides_enable_on_vim_startup = 1
-  let g:indent_guides_guide_size = 1
-"""
+repo = "Shougo/neosnippet-snippets"
+
+# [[plugins]]
+# repo = "nathanaelkane/vim-indent-guides"
+# hook_add = """
+#   let g:indent_guides_enable_on_vim_startup = 1
+#   let g:indent_guides_guide_size = 1
+#   let g:indent_guides_exclude_filetypes = ["help", "nerdtree"]
+# """
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = "scrooloose/nerdtree"
