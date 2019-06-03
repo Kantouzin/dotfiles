@@ -78,3 +78,22 @@ repo = "itchyny/calendar.vim"
 
 [[plugins]]
 repo = "Kantouzin/vim-today"
+
+[[plugins]]
+repo = 'Kantouzin/vim-formatted-title'
+hook_add = '''
+  let g:formattedTitle_char = '='
+  let g:formattedTitle_title_len = 30
+'''
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
+repo = 'yuttie/comfortable-motion.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+hook_add = '''
+  nnoremap <silent> <Space>// :OverCommandLine<CR>%s/
+'''
