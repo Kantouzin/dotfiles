@@ -9,7 +9,7 @@ build = "make"
 repo = "autozimu/LanguageClient-neovim"
 rev = "next"
 build = "./install.sh"
-hook_add = '''
+hook_add = """
   set hidden
   let g:LanguageClient_serverCommands = {
     \ "python": ["pyls"],
@@ -17,13 +17,13 @@ hook_add = '''
     \ }
   let g:LanguageClient_autoStart = 1
   let g:LanguageClient_diagnosticsEnable = 0
-'''
+"""
 
 [[plugins]]
 repo = "Shougo/neosnippet-snippets"
 
 [[plugins]]
-repo = 'Yggdroot/indentLine'
+repo = "Yggdroot/indentLine"
 hook_add = """
   let g:indentLine_char = '¦'
 """
@@ -80,20 +80,20 @@ repo = "itchyny/calendar.vim"
 repo = "Kantouzin/vim-today"
 
 [[plugins]]
-repo = 'Kantouzin/vim-formatted-title'
-hook_add = '''
+repo = "Kantouzin/vim-formatted-title"
+hook_add = """
   let g:formattedTitle_char = '='
   let g:formattedTitle_title_len = 30
-'''
+"""
 
 [[plugins]]
-repo = 'tpope/vim-repeat'
+repo = "tpope/vim-repeat"
 
 [[plugins]]
-repo = 'yuttie/comfortable-motion.vim'
+repo = "yuttie/comfortable-motion.vim"
 
 [[plugins]]
-repo = 'osyo-manga/vim-over'
-hook_add = '''
+repo = "osyo-manga/vim-over"
+hook_add = """
   nnoremap <silent> <Space>// :OverCommandLine<CR>%s/
-'''
+"""
