@@ -1,15 +1,20 @@
 [[plugins]]
 repo = "Shougo/deoplete.nvim"
 hook_source = """
-  if !has("nvim")
-    call dein#add("roxma/nvim-yarp")
-    call dein#add("roxma/vim-hug-neovim-rpc")
-  endif
   let g:deoplete#enable_at_startup = 1
   inoremap <expr><tab> pumvisible() ? "\<C-n>" :
         \ neosnippet#expandable_or_jumpable() ?
         \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 """
+on_event = "InsertEnter"
+depends = ["nvim-yarp", "vim-hug-neovim-rpc"]
+
+[[plugins]]
+repo = "roxma/nvim-yarp"
+on_event = "InsertEnter"
+
+[[plugins]]
+repo = "roxma/vim-hug-neovim-rpc"
 on_event = "InsertEnter"
 
 [[plugins]]
@@ -25,6 +30,20 @@ hook_source = """
 on_event = "InsertEnter"
 on_ft = "snippet"
 depends = "neosnippet-snippets"
+
+[[plugins]]
+repo = "Shougo/neosnippet-snippets"
+on_event = "InsertEnter"
+on_ft = "snippet"
+
+[[plugins]]
+repo = "scrooloose/nerdtree"
+hook_add = """
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  nnoremap <silent><C-e> :NERDTreeToggle<CR>
+"""
+on_cmd = "NERDTreeToggle"
 
 [[plugins]]
 repo = "itchyny/vim-haskell-indent"
@@ -43,3 +62,35 @@ on_ft = "python"
 [[plugins]]
 repo = "alunny/pegjs-vim"
 on_ft = "pegjs"
+
+[[plugins]]
+repo = "alvan/vim-closetag"
+on_event = "InsertEnter"
+on_ft = ["html", "xhtml", "xml"]
+
+[[plugins]]
+repo = "thinca/vim-quickrun"
+on_cmd = "QuickRun"
+
+[[plugins]]
+repo = "itchyny/calendar.vim"
+on_cmd = "Calendar"
+
+[[plugins]]
+repo = "osyo-manga/vim-over"
+hook_add = """
+  nnoremap <silent> <Space>// :OverCommandLine<CR>%s/
+"""
+on_cmd = "OverCommandLine"
+
+[[plugins]]
+repo = "Kantouzin/vim-today"
+on_cmd = "Today"
+
+[[plugins]]
+repo = "Kantouzin/vim-formatted-title"
+hook_source = """
+  let g:formattedTitle_char = '='
+  let g:formattedTitle_title_len = 30
+"""
+on_cmd = "FormattedTitle"
