@@ -113,8 +113,9 @@ filetype indent on
 
 augroup fileTypeIndent
   autocmd!
-  autocmd BufNewFile,BufRead *.md setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.pegjs setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd Filetype markdown setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd Filetype vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd Filetype toml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd Filetype pegjs setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
