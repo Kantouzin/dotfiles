@@ -94,3 +94,7 @@ hook_source = """
   let g:formattedTitle_char = '='
   let g:formattedTitle_title_len = 30
 """
+
+[[plugins]]
+repo = 'ollykel/v-vim'
+on_ft = ["vlang"]
