@@ -114,8 +114,10 @@ filetype indent on
 augroup fileTypeIndent
   autocmd!
   autocmd Filetype markdown setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd Filetype markdown setlocal tabstop=2 softtabstop=2 shiftwidth=2 wrap
   autocmd Filetype vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd Filetype toml setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd Filetype pegjs setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd Filetype json setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
