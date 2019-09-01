@@ -98,3 +98,17 @@ hook_source = """
 [[plugins]]
 repo = 'ollykel/v-vim'
 on_ft = ["vlang"]
+
+[[plugins]]
+repo = "neovimhaskell/haskell-vim"
+on_ft = ["haskell"]
+
+[[plugins]]
+repo = 'vim-scripts/VimClojure'
+on_ft = ["clojure"]
+hook_source = """
+  let g:vimclojure#HighlightBuiltins=1
+  let g:vimclojure#HighlightContrib=1
+  let g:vimclojure#DynamicHighlighting=1
+  let g:vimclojure#ParenRainbow=1
+"""

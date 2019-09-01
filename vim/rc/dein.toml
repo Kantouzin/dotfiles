@@ -13,10 +13,21 @@ hook_add = """
   set hidden
   let g:LanguageClient_serverCommands = {
     \ "python": ["pyls"],
-    \ "haskell": ["hie"]
+    \ "haskell": ["hie-wrapper"],
     \ }
   let g:LanguageClient_autoStart = 1
   let g:LanguageClient_diagnosticsEnable = 0
+
+  if &filetype == "haskell"
+    let g:LanguageClient_rootMarkers = ["*.cabal", "stack.yaml"]
+  endif
+
+  nnoremap <silent> gt :call LanguageClient_textDocument_hover()<CR>
+  nnoremap <silent> gr :call LanguageClient_textDocument_rename()<CR>
+  nnoremap <silent> gs :call LanugageClient_textDocument_documentSymbol()<CR>
+  nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+  nnoremap <silent> gr :call LanguageClient_textDocument_rename()<CR>
+  nnoremap <silent> g- :call LanguageClient_textDocument_formatting()<CR>
 """
 
 [[plugins]]
@@ -27,7 +38,7 @@ depends = ["LanguageClient-neovim"]
 repo = "Yggdroot/indentLine"
 hook_add = """
   let g:indentLine_char = '¦'
-  let g:indentLine_fileTypeExclude = ["help", "nerdtree", "calendar"]
+  let g:indentLine_fileTypeExclude = ["help", "nerdtree", "calendar", "haskell"]
 """
 
 [[plugins]]
@@ -51,10 +62,10 @@ hook_add = """
   let g:ale_statusline_format = ["⨉ %d", "⚠ %d", "⬥ ok"]
   let g:ale_echo_msg_format = "[%linter%] %s [%severity%]"
   let g:ale_sign_column_always = 1
-  let g:ale_lint_on_enter = 1
+  " let g:ale_lint_on_enter = 1
+  " let g:ale_lint_on_text_changed = 1
   let g:ale_linters = {
     \ "python": ["flake8"],
-    \ "haskell": ["hie"]
     \ }
 """
 
@@ -69,3 +80,9 @@ repo = "yuttie/comfortable-motion.vim"
 
 [[plugins]]
 repo = "itchyny/vim-cursorword"
+
+[[plugins]]
+repo = "bronson/vim-trailing-whitespace"
+hook_add = """
+  let g:extra_whitespace_ignored_filetypes = []
+"""
