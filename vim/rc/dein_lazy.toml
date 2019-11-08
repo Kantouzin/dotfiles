@@ -112,3 +112,18 @@ hook_source = """
   let g:vimclojure#DynamicHighlighting=1
   let g:vimclojure#ParenRainbow=1
 """
+
+[[plugins]]
+repo = "elzr/vim-json"
+on_ft = ["json"]
+hook_source = """
+  let g:vim_json_syntax_conceal = 0
+"""
+
+[[plugins]]
+repo = "leafgarland/typescript-vim"
+on_ft = ["typescript"]
+
+[[plugins]]
+repo = 'vim-scripts/vpp.vim'
+on_ft = ["vpp"]
