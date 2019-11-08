@@ -13,12 +13,17 @@ alias ..2="cd ../.."
 alias ..3="cd ../../.."
 alias cp="cp -i"
 alias mv="mv -i"
+alias cdp="cd /mnt/d/Project"
 
 # windows path
 alias clip="/mnt/c/Windows/System32/clip.exe"
 alias scoop="/mnt/c/Users/admin/scoop/shims/scoop"
 set PATH "/mnt/c/Windows/System32/WindowsPowerShell/v1.0" $PATH
+set PATH "$HOME/.local/bin" $PATH
 
 # powerline
 set fish_function_path $fish_function_path "/usr/local/lib/python3.6/dist-packages/powerline/bindings/fish/"
 powerline-setup
+
+set -x DISPLAY localhost:0.0
+set -x LIBGL_ALWAYS_INDIRECT 1
