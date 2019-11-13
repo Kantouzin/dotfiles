@@ -6,11 +6,23 @@
 
 ## Install
 
-```
+```Shell
 git clone https://github.com/Kantouzin/dotfiles.git $HOME/dotfiles
 env RCRC=$HOME/dotfiles/rcrc rcup
 ```
 
+## Register dotfile
+
+```Shell
+mkrc .dotfile
+```
+
+## Update
+
+```Shell
+rcup
+```
+
 ## License
 
-[MIT License](LICENSE)
+[MIT license](LICENSE)
