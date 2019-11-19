@@ -1,0 +1,8 @@
+{
+  "diagnostic.refreshOnInsertMode": true,
+  "python.jediPath": "/home/yamano/.local/lib/python3.6/site-packages/",
+  "python.jediEnabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Path": "/usr/bin/flake8"
+}
