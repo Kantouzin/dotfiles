@@ -121,3 +121,7 @@ augroup fileTypeIndent
   autocmd Filetype json setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
+
+" =========== keymap ===========
+
+inoremap <C-c> <ESC>
