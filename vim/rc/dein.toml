@@ -54,3 +54,24 @@ repo = "bronson/vim-trailing-whitespace"
 hook_add = """
   let g:extra_whitespace_ignored_filetypes = []
 """
+
+[[plugins]]
+repo = "simeji/winresizer"
+hook_add = """
+  let g:winresizer_start_key = "<C-K>"
+"""
+
+[[plugins]]
+repo = "airblade/vim-gitgutter"
+hook_add = """
+  let g:gitgutter_sign_added            = "・"
+  let g:gitgutter_sign_modified         = "・"
+  let g:gitgutter_sign_removed          = "・"
+  let g:gitgutter_sign_modified_removed = "・"
+  augroup gitguttercolor
+    autocmd!
+    autocmd ColorScheme * highlight GitGutterAdd    ctermfg=10 ctermbg=235
+    autocmd ColorScheme * highlight GitGutterChange ctermfg=14 ctermbg=235
+    autocmd ColorScheme * highlight GitGutterDelete ctermfg=12 ctermbg=235
+  augroup END
+"""

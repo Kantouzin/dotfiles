@@ -108,3 +108,10 @@ on_ft = ["typescript"]
 [[plugins]]
 repo = 'vim-scripts/vpp.vim'
 on_ft = ["vpp"]
+
+[[plugins]]
+repo = "junegunn/goyo.vim"
+hook_source = """
+  let g:goyo_width = 80%
+"""
+on_cmd = ["Goyo"]
