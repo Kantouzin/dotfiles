@@ -7,10 +7,10 @@ build = "make"
 
 [[plugins]]
 repo = "neoclide/coc.nvim"
+merge = 0
 rev = "release"
-merged = "0"
-"hook_add" = """
-  set updatetime = 300
+hook_add = """
+  let g:vista_default_executive = "coc"
 """
 
 [[plugins]]
