@@ -39,7 +39,7 @@ if dein#load_state(s:dein_dir)
   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
   " load colorscheme
-  call dein#add("cocopon/iceberg.vim")
+  call dein#add("tomasr/molokai")
   " load TOML
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
@@ -101,7 +101,7 @@ syntax on
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme iceberg
+colorscheme molokai
 
 " ========= powerline ==========
 
