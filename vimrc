@@ -71,8 +71,7 @@ set clipboard=unnamed,autoselect
 " =========== indent ===========
 
 set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set shiftwidth=0
 set smarttab
 set expandtab
 
@@ -110,17 +109,6 @@ set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
 " ========== filetype ==========
 
 filetype indent on
-
-augroup fileTypeIndent
-  autocmd!
-  autocmd Filetype markdown setlocal tabstop=2 softtabstop=2 shiftwidth=2 wrap
-  autocmd Filetype vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd Filetype toml setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd Filetype pegjs setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd Filetype json setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2
-augroup END
 
 " =========== keymap ===========
 
