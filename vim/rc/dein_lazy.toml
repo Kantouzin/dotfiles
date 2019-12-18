@@ -1,117 +1,117 @@
 [[plugins]]
-repo = "Shougo/neosnippet"
-on_event = ["InsertEnter"]
-on_ft = ["snippet"]
-depends = ["neosnippet-snippets"]
-hook_source = """
+repo = 'Shougo/neosnippet'
+on_event = ['InsertEnter']
+on_ft = ['snippet']
+depends = ['neosnippet-snippets']
+hook_source = '''
   imap <C-k> <Plug>(neosnippet_expand_or_jump)
   smap <C-k> <Plug>(neosnippet_expand_or_jump)
   xmap <C-k> <Plug>(neosnippet_expand_target)
-  if has("conceal")
+  if has('conceal')
     set conceallevel=2 concealcursor=niv
   endif
-"""
+'''
 
 [[plugins]]
-repo = "Shougo/neosnippet-snippets"
-on_event = ["InsertEnter"]
-on_ft = ["snippet"]
+repo = 'Shougo/neosnippet-snippets'
+on_event = ['InsertEnter']
+on_ft = ['snippet']
 
 [[plugins]]
-repo = "scrooloose/nerdtree"
-on_cmd = ["NERDTreeToggle"]
-hook_add = """
+repo = 'scrooloose/nerdtree'
+on_cmd = ['NERDTreeToggle']
+hook_add = '''
   autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
   nnoremap <silent><C-e> :NERDTreeToggle<CR>
-"""
+'''
 
 [[plugins]]
-repo = "itchyny/vim-haskell-indent"
-on_event = ["InsertEnter"]
-on_ft = ["haskell"]
+repo = 'itchyny/vim-haskell-indent'
+on_event = ['InsertEnter']
+on_ft = ['haskell']
 
 [[plugins]]
-repo = "cespare/vim-toml"
-on_ft = ["toml"]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
 
 [[plugins]]
-repo = "Vimjas/vim-python-pep8-indent"
-on_event = ["InsertEnter"]
-on_ft = ["python"]
+repo = 'Vimjas/vim-python-pep8-indent'
+on_event = ['InsertEnter']
+on_ft = ['python']
 
 [[plugins]]
-repo = "alunny/pegjs-vim"
-on_ft = ["pegjs"]
+repo = 'alunny/pegjs-vim'
+on_ft = ['pegjs']
 
 [[plugins]]
-repo = "alvan/vim-closetag"
-on_event = ["InsertEnter"]
-on_ft = ["html", "xhtml", "xml"]
+repo = 'alvan/vim-closetag'
+on_event = ['InsertEnter']
+on_ft = ['html', 'xhtml', 'xml']
 
 [[plugins]]
-repo = "thinca/vim-quickrun"
-on_cmd = ["QuickRun"]
+repo = 'thinca/vim-quickrun'
+on_cmd = ['QuickRun']
 
 [[plugins]]
-repo = "itchyny/calendar.vim"
-on_cmd = ["Calendar"]
+repo = 'itchyny/calendar.vim'
+on_cmd = ['Calendar']
 
 [[plugins]]
-repo = "osyo-manga/vim-over"
-on_cmd = ["OverCommandLine"]
-hook_add = """
+repo = 'osyo-manga/vim-over'
+on_cmd = ['OverCommandLine']
+hook_add = '''
   nnoremap <silent> <Space>// :OverCommandLine<CR>%s/
-"""
+'''
 
 [[plugins]]
-repo = "Kantouzin/vim-today"
-on_cmd = ["Today"]
+repo = 'Kantouzin/vim-today'
+on_cmd = ['Today']
 
 [[plugins]]
-repo = "Kantouzin/vim-formatted-title"
-on_cmd = ["FormattedTitle"]
-hook_source = """
+repo = 'Kantouzin/vim-formatted-title'
+on_cmd = ['FormattedTitle']
+hook_source = '''
   let g:formattedTitle_char = '='
   let g:formattedTitle_title_len = 30
-"""
+'''
 
 [[plugins]]
 repo = 'ollykel/v-vim'
-on_ft = ["vlang"]
+on_ft = ['vlang']
 
 [[plugins]]
-repo = "neovimhaskell/haskell-vim"
-on_ft = ["haskell"]
+repo = 'neovimhaskell/haskell-vim'
+on_ft = ['haskell']
 
 [[plugins]]
 repo = 'vim-scripts/VimClojure'
-on_ft = ["clojure"]
-hook_source = """
+on_ft = ['clojure']
+hook_source = '''
   let g:vimclojure#HighlightBuiltins=1
   let g:vimclojure#HighlightContrib=1
   let g:vimclojure#DynamicHighlighting=1
   let g:vimclojure#ParenRainbow=1
-"""
+'''
 
 [[plugins]]
-repo = "elzr/vim-json"
-on_ft = ["json"]
-hook_source = """
+repo = 'elzr/vim-json'
+on_ft = ['json']
+hook_source = '''
   let g:vim_json_syntax_conceal = 0
-"""
+'''
 
 [[plugins]]
-repo = "leafgarland/typescript-vim"
-on_ft = ["typescript"]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
 
 [[plugins]]
 repo = 'vim-scripts/vpp.vim'
-on_ft = ["vpp"]
+on_ft = ['vpp']
 
 [[plugins]]
-repo = "junegunn/goyo.vim"
-hook_source = """
+repo = 'junegunn/goyo.vim'
+hook_source = '''
   let g:goyo_width = 80%
-"""
-on_cmd = ["Goyo"]
+'''
+on_cmd = ['Goyo']

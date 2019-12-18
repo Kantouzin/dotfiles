@@ -1,77 +1,77 @@
 [[plugins]]
-repo = "Shougo/dein.vim"
+repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = "Shougo/vimproc.vim"
-build = "make"
+repo = 'Shougo/vimproc.vim'
+build = 'make'
 
 [[plugins]]
-repo = "neoclide/coc.nvim"
+repo = 'neoclide/coc.nvim'
 merge = 0
-rev = "release"
-hook_add = """
-  let g:vista_default_executive = "coc"
-"""
+rev = 'release'
+hook_add = '''
+  let g:vista_default_executive = 'coc'
+'''
 
 [[plugins]]
-repo = "liuchengxu/vista.vim"
-depends = ["coc.nvim"]
+repo = 'liuchengxu/vista.vim'
+depends = ['coc.nvim']
 
 [[plugins]]
-repo = "Yggdroot/indentLine"
-hook_add = """
+repo = 'Yggdroot/indentLine'
+hook_add = '''
   let g:indentLine_char = '¦'
-  let g:indentLine_fileTypeExclude = ["help", "nerdtree", "calendar", "haskell"]
-"""
+  let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'calendar', 'haskell']
+'''
 
 [[plugins]]
-repo = "tomtom/tcomment_vim"
+repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
-repo = "tpope/vim-surround"
+repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = "Shougo/context_filetype.vim"
+repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
-repo = "osyo-manga/vim-precious"
-depends = ["context_filetype.vim"]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
 
 [[plugins]]
-repo = "tpope/vim-repeat"
+repo = 'tpope/vim-repeat'
 
 [[plugins]]
-repo = "jiangmiao/auto-pairs"
+repo = 'jiangmiao/auto-pairs'
 
 [[plugins]]
-repo = "yuttie/comfortable-motion.vim"
+repo = 'yuttie/comfortable-motion.vim'
 
 [[plugins]]
-repo = "itchyny/vim-cursorword"
+repo = 'itchyny/vim-cursorword'
 
 [[plugins]]
-repo = "bronson/vim-trailing-whitespace"
-hook_add = """
+repo = 'bronson/vim-trailing-whitespace'
+hook_add = '''
   let g:extra_whitespace_ignored_filetypes = []
-"""
+'''
 
 [[plugins]]
-repo = "simeji/winresizer"
-hook_add = """
-  let g:winresizer_start_key = "<C-K>"
-"""
+repo = 'simeji/winresizer'
+hook_add = '''
+  let g:winresizer_start_key = '<C-K>'
+'''
 
 [[plugins]]
-repo = "airblade/vim-gitgutter"
-hook_add = """
-  let g:gitgutter_sign_added            = "・"
-  let g:gitgutter_sign_modified         = "・"
-  let g:gitgutter_sign_removed          = "・"
-  let g:gitgutter_sign_modified_removed = "・"
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+  let g:gitgutter_sign_added            = '・'
+  let g:gitgutter_sign_modified         = '・'
+  let g:gitgutter_sign_removed          = '・'
+  let g:gitgutter_sign_modified_removed = '・'
   augroup gitguttercolor
     autocmd!
     autocmd ColorScheme * highlight GitGutterAdd    ctermfg=10 ctermbg=235
     autocmd ColorScheme * highlight GitGutterChange ctermfg=14 ctermbg=235
     autocmd ColorScheme * highlight GitGutterDelete ctermfg=12 ctermbg=235
   augroup END
-"""
+'''
