@@ -1,21 +1,15 @@
 [[plugins]]
-repo = 'Shougo/neosnippet'
+repo = 'SirVer/ultisnips'
 on_event = ['InsertEnter']
-on_ft = ['snippet']
-depends = ['neosnippet-snippets']
-hook_source = '''
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-  if has('conceal')
-    set conceallevel=2 concealcursor=niv
-  endif
+hook_add = '''
+  let g:UltiSnipsExpandTrigger="<c-k>"
+  let g:UltiSnipsJumpForwardTrigger="<c-k>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 '''
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'honza/vim-snippets'
 on_event = ['InsertEnter']
-on_ft = ['snippet']
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
