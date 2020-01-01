@@ -4,23 +4,26 @@
 
 [thoughtbot/rcm](https://github.com/thoughtbot/rcm)
 
-## Install
 
-```Shell
+## Usage
+
+### Install
+
+```fish
 git clone https://github.com/Kantouzin/dotfiles.git $HOME/dotfiles
 env RCRC=$HOME/dotfiles/rcrc rcup
 ```
 
-## Register dotfile
+### Register dotfile
 
-```Shell
+```fish
 mkrc .dotfile
 ```
 
-## Update
+### Uninstall
 
-```Shell
-rcup
+```fish
+rcdn
 ```
 
 ## License
