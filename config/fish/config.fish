@@ -18,6 +18,7 @@ alias cdp="cd /mnt/d/Project"
 # windows path
 alias clip="/mnt/c/Windows/System32/clip.exe"
 alias scoop="/mnt/c/Users/admin/scoop/shims/scoop"
+
 set PATH "/mnt/c/Windows/System32/WindowsPowerShell/v1.0" $PATH
 set PATH "$HOME/.local/bin" $PATH
 
@@ -27,3 +28,8 @@ powerline-setup
 
 set -x DISPLAY localhost:0.0
 set -x LIBGL_ALWAYS_INDIRECT 1
+
+# golang
+set -x GOPATH $HOME/go
+set -x GOBIN $GOPATH/bin
+set PATH $GOPATH $GOBIN $PATH
