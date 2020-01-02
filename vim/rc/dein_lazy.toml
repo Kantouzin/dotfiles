@@ -21,29 +21,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'itchyny/vim-haskell-indent'
-on_event = ['InsertEnter']
-on_ft = ['haskell']
-
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = ['toml']
-
-[[plugins]]
-repo = 'Vimjas/vim-python-pep8-indent'
-on_event = ['InsertEnter']
-on_ft = ['python']
-
-[[plugins]]
-repo = 'alunny/pegjs-vim'
-on_ft = ['pegjs']
-
-[[plugins]]
-repo = 'alvan/vim-closetag'
-on_event = ['InsertEnter']
-on_ft = ['html', 'xhtml', 'xml']
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 on_cmd = ['QuickRun']
 
@@ -69,39 +46,6 @@ hook_source = '''
   let g:formattedTitle_char = '='
   let g:formattedTitle_title_len = 30
 '''
-
-[[plugins]]
-repo = 'ollykel/v-vim'
-on_ft = ['vlang']
-
-[[plugins]]
-repo = 'neovimhaskell/haskell-vim'
-on_ft = ['haskell']
-
-[[plugins]]
-repo = 'vim-scripts/VimClojure'
-on_ft = ['clojure']
-hook_source = '''
-  let g:vimclojure#HighlightBuiltins=1
-  let g:vimclojure#HighlightContrib=1
-  let g:vimclojure#DynamicHighlighting=1
-  let g:vimclojure#ParenRainbow=1
-'''
-
-[[plugins]]
-repo = 'elzr/vim-json'
-on_ft = ['json']
-hook_source = '''
-  let g:vim_json_syntax_conceal = 0
-'''
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript']
-
-[[plugins]]
-repo = 'vim-scripts/vpp.vim'
-on_ft = ['vpp']
 
 [[plugins]]
 repo = 'junegunn/goyo.vim'
