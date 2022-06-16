@@ -57,3 +57,11 @@ on_ft = ['vpp']
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
+
+[[plugins]]
+repo = 'chrisbra/csv.vim'
+on_ft = ['csv']
+hook_source = '''
+  setlocal noexpandtab
+  setlocal nolist
+'''

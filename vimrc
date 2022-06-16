@@ -96,6 +96,10 @@ set nobackup
 " *.un~
 set noundofile
 
+" ========== filetype ==========
+
+filetype plugin indent on
+
 " ======== colorscheme =========
 
 syntax on
@@ -108,10 +112,10 @@ colorscheme molokai
 
 set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
 
-" ========== filetype ==========
-
-filetype indent on
-
 " =========== keymap ===========
 
 inoremap <C-c> <ESC>
+
+set belloff=all
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
+let g:coc_disable_startup_warning = 1

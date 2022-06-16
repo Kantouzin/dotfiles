@@ -4,7 +4,9 @@ set -x LC_CTYPE ja_JP.UTF-8
 
 # alias
 alias vi="/usr/bin/vim"
-alias ls="ls --all --color --classify"
+if test /usr/bin/exa
+    alias ls="exa -a"
+end
 if test /usr/bin/trash-put
     alias rm="trash-put"
 end
@@ -17,10 +19,6 @@ alias cdp="cd /mnt/d/Project"
 
 # windows path
 alias clip="/mnt/c/Windows/System32/clip.exe"
-alias scoop="/mnt/c/Users/admin/scoop/shims/scoop"
-
-set PATH "/mnt/c/Windows/System32/WindowsPowerShell/v1.0" $PATH
-set PATH "$HOME/.local/bin" $PATH
 
 # powerline
 set fish_function_path $fish_function_path "/usr/local/lib/python3.6/dist-packages/powerline/bindings/fish/"
